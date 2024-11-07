@@ -1,0 +1,967 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
+}
+
+.background-section {
+    position: relative;
+    background-image: url("/img/Portrait-Web.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto parallax */
+    padding-bottom: 40px; /* Ajusta el espacio si es necesario */
+    flex: 1;
+    overflow: hidden; /* Asegura que el contenido del pseudo-elemento no se desborde */
+}
+
+
+.background-blur {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Ajusta el color de fondo y la opacidad del degradado */
+    backdrop-filter: blur(5px); /* Difuminado del fondo */
+    z-index: 0; /* Coloca el pseudo-elemento detrás del contenido */
+}
+
+/* Estilo del navegador principal */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    width: 70%; /* Ancho de la barra */
+    margin: 0 auto; /* Esto centra la barra horizontalmente */
+    z-index: 2; /* Asegura que la navbar esté por encima del difuminado */
+    backdrop-filter: blur(0px); /* Sin difuminado adicional en la navbar */
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo del menú cuando está abierto en dispositivos móviles */
+.menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    z-index: 2;
+}
+
+.menu.active a {
+    display: block;
+    padding: 10px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.logo-img {
+    height: 73px;
+    margin: 5px auto;
+    z-index: 2; /* Asegura que el logo esté visible por encima del difuminado */
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú */
+    align-items: center;
+    z-index: 2; /* Asegura que el menú esté visible por encima del difuminado */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px 20px; /* Espaciado en el enlace */
+    position: relative;
+}
+
+.menu a:not(.boton-contacto):hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #007BFF;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.contacto-container {
+    margin-left: 20px; /* Espacio a la izquierda para separar "Contacto" de los demás enlaces */
+}
+
+.contacto {
+    background-color: rgb(3, 184, 255); /* Color de fondo por defecto */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 17.3px; /* Espaciado interno */
+}
+
+.boton-contacto {
+    --color: #fff;
+    --color-hover: #fff; /* Color del texto en hover */
+    --background: #15518a; /* Fondo normal */
+    --background-hover: #1772db; /* Fondo en hover */
+    padding: 8px 28px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    border: none;
+    cursor: pointer;
+    display: inline-block; /* Asegura que se comporta como un botón */
+    text-decoration: none; /* Quita el subrayado */
+    color: var(--color); /* Color del texto normal */
+    background: var(--background); /* Color de fondo normal */
+    transition: background 0.3s ease, color 0.3s ease; /* Transiciones */
+}
+
+.boton-contacto:hover {
+    background: var(--background-hover); /* Cambia fondo en hover */
+    color: var(--color-hover); /* Cambia color del texto en hover */
+}
+
+
+/* Estilo de la sección de imagen */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; /* Ajusta los márgenes laterales para dar espacio */
+    height: 85vh;
+    width: 50%;
+    background: none; 
+    margin: 0 auto;
+    z-index: 1; /* Coloca el contenido de .hero por encima del difuminado */
+}
+
+.hero-text {
+    color: white;
+    flex: 1;
+    padding: 6%;
+    margin-right: 50px; /* Espacio entre el texto y la imagen */
+    background-color: rgba(131, 186, 238, 0.658);
+    border-radius: 50px;
+    box-shadow: 10px 5px 500px rgba(255, 255, 255, 0.678);
+    z-index: 1; /* Coloca el contenido por encima del difuminado */
+    text-shadow: 0 1px 0 #000;
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        rgb(24, 20, 70),
+        rgb(21, 26, 48) 5%,
+        rgb(19, 25, 43) 60%,
+        rgb(25, 18, 66) 95%
+      );
+    
+    border: solid 5px transparent;
+    border-radius: 2em;
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, rgb(0, 68, 255), rgb(0, 195, 255) 99%, transparent);
+    
+    background: 
+      var(--main-bg) padding-box,
+      var(--gradient-border) border-box, 
+      var(--main-bg) border-box;
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
+    @keyframes bg-spin {
+      to {
+        --border-angle: 1turn;
+      }
+    }
+  
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }
+  .b-syscad {
+    color: rgba(105, 210, 252, 0.747);
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.hero-text a {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.747);
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #77b2e9;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.hero-text p {
+    font-size: 30px;
+    padding: 0px 0px 10px;
+}
+
+.knowmore-img {
+    width: 10%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.knowmore-img:hover {
+    transform: scale(1.1);
+    transform: rotate(-35deg)
+}
+
+/* REDES SOCIALES .HERO */
+/* Contenedor de los íconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: flex-start; /* Alinea los íconos a la izquierda */
+    gap: 15px; /* Separación entre los cuadrados */
+    margin-bottom: 20px; /* Espacio entre las imágenes y el título */
+}
+
+/* Estilo de los cuadrados de redes sociales */
+.social-square {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border-radius: 10%; /* Bordes ligeramente redondeados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-square:hover {
+    background-color: #e6e2e2; /* Fondo azul al pasar el ratón */
+    transform: scale(1.03); /* Aumenta ligeramente el tamaño */
+    cursor: pointer;
+}
+
+/* Ajuste de las imágenes para que encajen bien en los cuadrados */
+.social-square img {
+    width: 70%; /* Ajusta la imagen al 70% del cuadrado */
+    height: auto; /* Mantiene la proporción */
+}
+
+.social-icons {
+    display: flex; /* Alinea los elementos en fila */
+    align-items: center; /* Alinea verticalmente al centro */
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.phone-number {
+    background: #d2f4ff; /* Color de fondo */
+    padding: auto; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    display: none; /* Oculto inicialmente */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.phone-number p {
+    padding: 0px 10px; /* espacio derecha/izquierda */
+    font-size: 16px;
+    color: black;
+}
+
+.email-number {
+    display: none;
+}
+
+.email-number a {
+    color: black;
+    background: #d2f4ff; /* Color de fondo */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+    font-size: 25px;
+}
+
+/* Cambios al pasar el ratón por encima de .email-number */
+.email-number:hover {
+    color: rgb(255, 255, 255); /* Cambia el color del contenedor */
+    background-color: #2c89adcc; /* Cambia el color de fondo del contenedor */
+    font-size: 22px; /* Cambia el tamaño de la fuente (opcional) */
+}
+
+/* Cambios al pasar el ratón por encima de .email-number afectando al <a> */
+.email-number:hover a {
+    color: rgb(255, 255, 255); /* Cambia el color del texto del enlace al pasar el ratón */
+}
+
+
+/* SECCIÓN DE PRODUCTOS */
+
+.services {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f3f4f6; /* Fondo general de la sección */
+}
+
+.h1-services {
+    font-size: 2.5rem;
+    color: #1d3557; /* Azul oscuro para un toque formal */
+    margin-bottom: 10px;
+}
+
+.hr-services {
+    width: 40%;
+    margin-top: 2%;
+    border: 1.7px dashed rgba(134, 134, 134, 0.418);
+}
+
+.services-description {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuadrícula de 4 columnas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra la cuadrícula */
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.service-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ajusta la imagen para que cubra completamente */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service-title {
+    font-size: 1.2rem;
+    color: #1d3557;
+    margin-bottom: 10px;
+}
+
+.service-info {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.service-btn {
+    background-color: #1d3557;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.service-btn:hover {
+    background-color: #457b9d; /* Cambia el color al hacer hover */
+}
+  
+/* STYLES OF PRICING TABLE  */
+
+:root {
+    --baseColor: #3160ce;
+    --baseSize: 16px;
+    --baseLineHeight: 1.5;
+    --fontFamily: Inter, sans-serif;
+    --pink: #001c77;
+    --pinkLight: #74b0ff;
+    --blue: #1769ff;
+  
+    --redTick: url("data:image/svg+xml,%3Csvg width='18' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.552.134 5.717 10.97 1.448 6.701 0 8.149l5.717 5.717L18 1.583 16.552.134Z' fill='%23EA455F'/%3E%3C/svg%3E%0A");
+  
+    --whiteTick: url("data:image/svg+xml,%3Csvg width='18' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.552.134 5.717 10.97 1.448 6.701 0 8.149l5.717 5.717L18 1.583 16.552.134Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");
+  
+    --close: url("data:image/svg+xml,%3Csvg width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 1.414 16.586 0 9 7.586 1.414 0 0 1.414 7.586 9 0 16.586 1.414 18 9 10.414 16.586 18 18 16.586 10.414 9 18 1.414Z' fill='%23B1B8C9'/%3E%3C/svg%3E");
+  
+    --entpIcon: url("data:image/svg+xml,%3Csvg width='42' height='42' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.813 11.077 21 1.155l17.187 9.922v19.846L21 40.845 3.813 30.923V11.077Z' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='21' cy='21' r='8' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+  }
+  
+  html {
+    color: var(--baseColor);
+    font-family: var(--fontFamily);
+    font-size: var(--baseSize);
+    line-height: var(--baseLineHeight);
+  }
+  
+  .planshero-header {
+    text-align: center;
+    color: #1d3557; /* Azul oscuro para un toque formal */
+    margin-bottom: 10px;
+  }
+
+  .plansHero__title {
+    font-size: 2.5rem;
+  }
+
+  .plansHero__subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+  }
+
+  .plans {
+    &__container {
+      padding: 1rem 0 2rem;
+    }
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .planItem {
+    --border: 1px solid #e6e6e6;
+    --bgColor: #fff;
+    --boxShadow: none;
+    margin: 20px;
+  
+    &__container {
+      --direction: row; /* Modificación: ahora las tarjetas están alineadas en fila */
+      display: grid;
+      grid-auto-flow: var(--direction);
+      grid-auto-columns: 1fr;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+  
+    background-color: var(--bgColor);
+    border: var(--border);
+    border-radius: 1rem;
+    box-shadow: var(--boxShadow);
+    padding: 2rem 1.5rem;
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 260px; /* Modificación: ajusta el ancho de cada tarjeta para que entren en una fila */
+  
+    .price {
+      --priceMargin: 2rem 0;
+    }
+  
+    &--pro {
+      --border: 0;
+      --boxShadow: 0px 14px 30px rgba(204, 204, 204, 0.32);
+  
+      .label {
+        --labelBg: #fdb72e;
+        --labelColor: #fff;
+      }
+    }
+  
+    &--entp {
+      --bgColor: var(--blue);
+  
+      .card {
+        --titleColor: #fff;
+        --descColor: rgb(255 255 255 / 80%);
+  
+        &__icon {
+          background-image: var(--entpIcon);
+          background-size: cover;
+        }
+      }
+  
+      .price,
+      .featureList {
+        --color: #fff;
+      }
+  
+      .featureList {
+        --icon: var(--whiteTick);
+      }
+    }
+  
+    .button {
+      margin-top: auto;
+    }
+  }
+  
+  .button {
+    --bgColor: var(--pinkLight);
+    --color: var(--pink);
+    --shadowColor: rgba(76, 131, 234, 0.3);
+    --outline: var(--pink);
+  
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 0;
+    line-height: inherit;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--bgColor);
+    color: var(--color);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    user-select: none;
+  
+    &--pink {
+      --bgColor: var(--pink);
+      --color: #fff;
+      --shadowColor: rgba(76, 113, 234, 0.5);
+    }
+  
+    &--white {
+      --bgColor: #fff;
+      --shadowColor: rgb(255 255 255 / 30%);
+      --outline: #fff;
+    }
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 10px var(--shadowColor);
+    }
+  
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 2px solid var(--outline);
+    }
+  }
+  
+  .card {
+    --titleColor: #000;
+    --descColor: var(--baseColor);
+  
+    &__header {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  
+    &__icon {
+      width: 2.625rem;
+      height: 2.625rem;
+    }
+  
+    h2 {
+      color: var(--titleColor);
+      font-size: 1.5rem;
+      line-height: 1.2;
+      font-weight: 400;
+      margin: 0;
+      flex-grow: 1;
+    }
+  
+    &__desc {
+      margin: 1.5rem 0 0;
+      color: var(--descColor);
+    }
+  }
+  
+  .label {
+    display: none; /* Modificación: Oculta el cuadro de "Best Value" */
+    --labelColor: var(--baseColor);
+    --labelBg: #e5e5e5;
+  
+    font-weight: 600;
+    line-height: 1.25;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.625rem 1.125rem;
+    border-radius: 2rem;
+    user-select: none;
+    background-color: var(--labelBg);
+    color: var(--labelColor);
+  }
+  
+  .price {
+    --color: #000;
+    --priceMargin: 0;
+  
+    display: flex;
+    color: var(--color);
+    align-items: center;
+    gap: 0.5625rem;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: var(--priceMargin);
+  
+    span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--baseColor);
+    }
+  }
+  
+  .featureList {
+    --color: #000;
+    --icon: var(--redTick);
+    --height: 0.875rem;
+  
+    margin: 0 0 2.75rem;
+    padding: 0;
+    font-weight: 500;
+  
+    li {
+      color: var(--color);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+  
+      &:before {
+        content: "";
+        background-image: var(--icon);
+        background-size: cover;
+        display: block;
+        width: 1.125rem;
+        height: var(--height);
+      }
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+  
+      &.disabled {
+        --color: #b1b8c9;
+        --height: 1.125rem;
+        --icon: var(--close);
+      }
+    }
+  }
+  
+    &:after {
+      content: "";
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      border: 2px solid var(--pink);
+      width: var(--small);
+      height: var(--small);
+      border-radius: var(--radius);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+  @media screen and (max-width: 640px) {
+    .plans {
+      max-width: 480px;
+      width: 90%;
+    }
+  
+    .planItem__container {
+      --direction: column; /* Para que se adapten en móviles */
+    }
+  }
+  
+  @media screen and (min-width: 641px) and (max-width: 768px) {
+    :root {
+      --baseSize: 12px;
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1080px) {
+    :root {
+      --baseSize: 14px;
+    }
+  }
+
+/* PAQUETE A MEDIDA SECTION */
+.paquete-medida {
+  position: relative;
+  background-image: url("/img/Img-PaqMedida.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efecto parallax */
+  padding-bottom: 40px; /* Ajusta el espacio si es necesario */
+  flex: 1;
+  overflow: hidden; /* Asegura que el contenido del pseudo-elemento no se desborde */
+  height: 400px;
+}
+
+.text-medida {
+  text-align: center;
+  background-color: #8881e946;
+  margin: 0 auto;
+  color: rgb(255, 255, 255);
+  width: 60%;
+  box-shadow: 10px 5px 500px rgb(0, 250, 217);
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 40px;
+}
+  .text-medida h1 {
+    font-size: 50px;
+  }
+
+  .a-medida {
+    display: block; /* Permite que el elemento se comporte como un bloque */
+    width: fit-content; /* Ajusta el ancho al contenido del enlace */
+    margin: 3% auto; /* Centra el elemento horizontalmente y le da margen superior */
+    text-align: center;
+    color: white;
+    box-shadow: 10px 5px 500px rgba(255, 255, 255, 0.678);
+    text-decoration: none;
+    background-color: #007BFF;
+    padding: 2.3%;
+    border-radius: 10px; /* Agrega esquinas redondeadas si lo deseas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega un efecto de sombra */
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 30px;
+  }
+  
+  .a-medida:hover {
+    background-color: #7b3dcce1; /* Cambia el color al pasar el ratón */
+    transform: scale(1.05); /* Agranda ligeramente al pasar el ratón */
+    box-shadow: 10px 20px 50px rgba(91, 97, 185, 0.781);
+  }
+  
+  /* CONTADOR EMPRESAS */
+  .contador-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .contador {
+    font-size: 7rem;
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 20px;
+  }
+
+  .contador-container img {
+    width: 50%;
+  }
+
+  /* FOOTER FINAL DE PÁGINA */
+  footer {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 10px 0;
+  }
+  
+  .footer-content {
+    max-width: 1000px; /* Reducido el tamaño máximo del footer */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Centra las columnas horizontalmente */
+    align-items: flex-start; /* Alinea las columnas verticalmente al inicio */
+    gap: 30px; /* Añade espacio entre las dos columnas */
+    color: rgb(167, 167, 167);
+  }
+  
+  .footer-column {
+    flex: 1;
+    text-align: left; /* Ajuste para que el texto no esté centrado */
+    margin-top: 15px;
+  }
+
+  .footer-column span {
+    margin-left: 15px;
+  }
+  
+  html body footer div.footer-content div.footer-column {
+    display: flex;
+    flex-direction: column; /* Apila los elementos dentro de cada columna */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+  }
+  
+  html body footer div.footer-content div.footer-column div.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* Reducido el espacio entre los elementos */
+  }
+  
+  html body footer div.footer-content div.footer-column img {
+    width: 6%; /* Reducido el tamaño de las imágenes */
+    margin-right: 8px; /* Reducido el margen entre la imagen y el texto */
+  }
+  
+  .footer-column h2 {
+    font-size: 1em; /* Reducido el tamaño del título */
+    margin-top: 0px;
+    text-align: left;
+  }
+  
+  .footer-column p {
+    font-size: 0.9em; /* Reducido el tamaño del texto */
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .footer-column .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Reducido el espacio entre los iconos sociales */
+  }
+
+  /* PORTADA RESPONSIVE ANTES DE LOS PRODUCTOS */
+  /* Ajustes para pantallas medianas (tabletas) */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column; /* Apila el texto y la imagen */
+        align-items: center; /* Centra el contenido */
+        height: auto; /* Permite que la altura se ajuste automáticamente */
+        width: 90%; /* Ajusta el ancho al 90% de la pantalla */
+        padding: 0 10px; /* Reduce los márgenes laterales */
+    }
+
+    .hero-text {
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-bottom: 20px; /* Añade espacio debajo del texto */
+        padding: 10%; /* Ajusta el padding para un mejor aspecto */
+        border-radius: 20px; /* Redondea menos las esquinas en tabletas */
+    }
+
+    .hero-text h1 {
+        font-size: 2rem; /* Ajusta el tamaño de la fuente */
+    }
+
+    .hero-text p {
+        font-size: 1.2rem; /* Ajusta el tamaño del texto */
+    }
+
+    .knowmore-img {
+        width: 15%; /* Ajusta el tamaño de la imagen */
+    }
+
+    .background-section {
+        background-attachment: scroll; /* Desactiva el efecto parallax */
+    }
+
+    .social-icons {
+        justify-content: center; /* Centra los íconos de redes sociales */
+        gap: 10px; /* Ajusta la separación entre íconos */
+    }
+
+    .social-square {
+        width: 40px; /* Reduce el tamaño de los íconos */
+        height: 40px;
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Apila el texto y la imagen */
+        width: 100%; /* Ajusta el ancho al 100% de la pantalla */
+        padding: 0 10px; /* Reduce los márgenes laterales */
+    }
+
+    .hero-text {
+        padding: 8%; /* Ajusta el padding para ocupar menos espacio */
+        border-radius: 15px; /* Reduce el redondeo de las esquinas */
+        box-shadow: none; /* Opcional: elimina la sombra para un diseño más limpio */
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem; /* Ajusta el tamaño de la fuente */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Ajusta el tamaño del texto */
+    }
+
+    .hero-text a {
+        font-size: 1rem; /* Ajusta el tamaño del enlace */
+        padding: 8px; /* Ajusta el espaciado del enlace */
+    }
+
+    .knowmore-img {
+        width: 20%; /* Ajusta el tamaño de la imagen */
+    }
+
+    .background-blur {
+        background: rgba(0, 0, 0, 0.6); /* Aumenta la opacidad del difuminado */
+    }
+
+    .social-icons {
+        justify-content: center; /* Centra los íconos de redes sociales */
+        gap: 5px; /* Ajusta la separación entre íconos */
+    }
+
+    .social-square {
+        width: 35px; /* Ajusta el tamaño de los íconos para pantallas más pequeñas */
+        height: 35px;
+    }
+
+    .phone-number, .email-number {
+        font-size: 14px; /* Reduce el tamaño de la fuente para los números */
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (móviles pequeños) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.5rem; /* Ajusta aún más el tamaño del texto */
+    }
+
+    .hero-text p {
+        font-size: 0.9rem; /* Ajusta el tamaño del texto */
+    }
+
+    .hero-text a {
+        font-size: 0.9rem; /* Ajusta el tamaño del enlace */
+        padding: 6px; /* Ajusta el espaciado del enlace */
+    }
+
+    .social-square {
+        width: 30px; /* Ajusta el tamaño de los íconos */
+        height: 30px;
+    }
+
+    .knowmore-img {
+        width: 25%; /* Ajusta el tamaño de la imagen */
+    }
+
+    .phone-number, .email-number {
+        font-size: 12px; /* Ajusta el tamaño de la fuente para los números */
+    }
+}
