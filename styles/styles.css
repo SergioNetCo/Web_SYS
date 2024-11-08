@@ -11,7 +11,7 @@ body, html {
 
 .background-section {
     position: relative;
-    background-image: url("/img/Portrait-Web.png");
+    background-image: url("../img/Portrait-Web.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Efecto parallax */
@@ -717,7 +717,7 @@ body, html {
 /* PAQUETE A MEDIDA SECTION */
 .paquete-medida {
   position: relative;
-  background-image: url("/img/Img-PaqMedida.jpg");
+  background-image: url("../img/Img-PaqMedida.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Efecto parallax */
