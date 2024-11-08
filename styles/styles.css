@@ -20,7 +20,6 @@ body, html {
     overflow: hidden; /* Asegura que el contenido del pseudo-elemento no se desborde */
 }
 
-
 .background-blur {
     content: '';
     position: absolute;
@@ -39,27 +38,36 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 50px 0;
     width: 70%; /* Ancho de la barra */
     margin: 0 auto; /* Esto centra la barra horizontalmente */
     z-index: 2; /* Asegura que la navbar esté por encima del difuminado */
     backdrop-filter: blur(0px); /* Sin difuminado adicional en la navbar */
 }
 
-.hamburger-menu {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 3;
+.menu-hamburguesa {
+  display: none; /* Oculto por defecto */
+  flex-direction: column;
+  background-color: #fff;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/5461/5461272.png');
+  position: absolute;
+  top: 60px; /* Ajusta según tu diseño */
+  right: 10px; /* Ajusta según tu diseño */
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.hamburger-menu span {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.3s ease;
+.menu-hamburguesa a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.hamburger-menu {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 /* Estilo del menú cuando está abierto en dispositivos móviles */
@@ -131,10 +139,6 @@ body, html {
     --background-hover: #1772db; /* Fondo en hover */
     padding: 8px 28px;
     border-radius: 20px;
-    line-height: 24px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: .02em;
     border: none;
     cursor: pointer;
     display: inline-block; /* Asegura que se comporta como un botón */
@@ -149,8 +153,6 @@ body, html {
     color: var(--color-hover); /* Cambia color del texto en hover */
 }
 
-
-/* Estilo de la sección de imagen */
 .hero {
     position: relative;
     display: flex;
@@ -243,7 +245,7 @@ body, html {
     transform: rotate(-35deg)
 }
 
-/* REDES SOCIALES .HERO */
+/* REDES SOCIALES HERO */
 /* Contenedor de los íconos de redes sociales */
 .social-icons {
     display: flex;
@@ -842,126 +844,222 @@ body, html {
     gap: 10px; /* Reducido el espacio entre los iconos sociales */
   }
 
-  /* PORTADA RESPONSIVE ANTES DE LOS PRODUCTOS */
-  /* Ajustes para pantallas medianas (tabletas) */
-@media (max-width: 1024px) {
-    .hero {
-        flex-direction: column; /* Apila el texto y la imagen */
-        align-items: center; /* Centra el contenido */
-        height: auto; /* Permite que la altura se ajuste automáticamente */
-        width: 90%; /* Ajusta el ancho al 90% de la pantalla */
-        padding: 0 10px; /* Reduce los márgenes laterales */
-    }
+/* PORTADA RESPONSIVE ANTES DE LOS PRODUCTOS */
+@media screen and (min-width: 1500px) and (max-width: 2400px) {
 
-    .hero-text {
-        margin-right: 0; /* Elimina el margen derecho */
-        margin-bottom: 20px; /* Añade espacio debajo del texto */
-        padding: 10%; /* Ajusta el padding para un mejor aspecto */
-        border-radius: 20px; /* Redondea menos las esquinas en tabletas */
-    }
+  .hero-text h1 {
+      font-size: 2.2rem;
+  }
 
-    .hero-text h1 {
-        font-size: 2rem; /* Ajusta el tamaño de la fuente */
-    }
+  .hero-text p {
+      font-size: 1.4rem;
+  }
 
-    .hero-text p {
-        font-size: 1.2rem; /* Ajusta el tamaño del texto */
-    }
+  .knowmore-img {
+      width: 12%;
+  }
 
-    .knowmore-img {
-        width: 15%; /* Ajusta el tamaño de la imagen */
-    }
-
-    .background-section {
-        background-attachment: scroll; /* Desactiva el efecto parallax */
-    }
-
-    .social-icons {
-        justify-content: center; /* Centra los íconos de redes sociales */
-        gap: 10px; /* Ajusta la separación entre íconos */
-    }
-
-    .social-square {
-        width: 40px; /* Reduce el tamaño de los íconos */
-        height: 40px;
-    }
+  .social-square {
+      width: 45px;
+      height: 45px;
+  }
 }
 
-/* Ajustes para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column; /* Apila el texto y la imagen */
-        width: 100%; /* Ajusta el ancho al 100% de la pantalla */
-        padding: 0 10px; /* Reduce los márgenes laterales */
-    }
+@media screen and (min-width: 1080px) and (max-width: 1500px) {
+  .hero {
+      flex-direction: row;
+      height: 60vh;
+      width: 70%;
+  }
 
-    .hero-text {
-        padding: 8%; /* Ajusta el padding para ocupar menos espacio */
-        border-radius: 15px; /* Reduce el redondeo de las esquinas */
-        box-shadow: none; /* Opcional: elimina la sombra para un diseño más limpio */
-    }
+  .hero-text h1 {
+      font-size: 2.2rem;
+  }
 
-    .hero-text h1 {
-        font-size: 1.8rem; /* Ajusta el tamaño de la fuente */
-    }
+  .hero-text p {
+      font-size: 1.4rem;
+  }
 
-    .hero-text p {
-        font-size: 1rem; /* Ajusta el tamaño del texto */
-    }
+  .knowmore-img {
+      width: 12%;
+  }
 
-    .hero-text a {
-        font-size: 1rem; /* Ajusta el tamaño del enlace */
-        padding: 8px; /* Ajusta el espaciado del enlace */
-    }
-
-    .knowmore-img {
-        width: 20%; /* Ajusta el tamaño de la imagen */
-    }
-
-    .background-blur {
-        background: rgba(0, 0, 0, 0.6); /* Aumenta la opacidad del difuminado */
-    }
-
-    .social-icons {
-        justify-content: center; /* Centra los íconos de redes sociales */
-        gap: 5px; /* Ajusta la separación entre íconos */
-    }
-
-    .social-square {
-        width: 35px; /* Ajusta el tamaño de los íconos para pantallas más pequeñas */
-        height: 35px;
-    }
-
-    .phone-number, .email-number {
-        font-size: 14px; /* Reduce el tamaño de la fuente para los números */
-    }
+  .social-square {
+      width: 45px;
+      height: 45px;
+  }
 }
 
-/* Ajustes para pantallas muy pequeñas (móviles pequeños) */
-@media (max-width: 480px) {
-    .hero-text h1 {
-        font-size: 1.5rem; /* Ajusta aún más el tamaño del texto */
-    }
-
-    .hero-text p {
-        font-size: 0.9rem; /* Ajusta el tamaño del texto */
-    }
-
-    .hero-text a {
-        font-size: 0.9rem; /* Ajusta el tamaño del enlace */
-        padding: 6px; /* Ajusta el espaciado del enlace */
-    }
-
-    .social-square {
-        width: 30px; /* Ajusta el tamaño de los íconos */
-        height: 30px;
-    }
-
-    .knowmore-img {
-        width: 25%; /* Ajusta el tamaño de la imagen */
-    }
-
-    .phone-number, .email-number {
-        font-size: 12px; /* Ajusta el tamaño de la fuente para los números */
-    }
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+.menu {
+    display: none; /* Oculta el menú por defecto */
 }
+.hamburger-menu {
+  display: block; /* Muestra el botón de hamburguesa */
+  width: 60px;
+  height: 60px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/5461/5461272.png'); /* Reemplaza con la URL de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+.menu-hamburguesa {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px; /* Ajusta según tu diseño */
+    right: 10px; /* Ajusta según tu diseño */
+    width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.menu-hamburguesa.active {
+    display: flex; /* Muestra el menú al activarlo */
+}
+  
+  .hero {
+      flex-direction: row;
+      height: 60vh;
+      width: 80%;
+  }
+
+  .hero-text h1 {
+      font-size: 2.2rem;
+  }
+
+  .hero-text p {
+      font-size: 1.4rem;
+  }
+
+  .knowmore-img {
+      width: 12%;
+  }
+
+  .social-square {
+      width: 45px;
+      height: 45px;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 768px) {
+  .hero {
+      flex-direction: row;
+      height: 65vh;
+      width: 80%;
+  }
+
+  .hero-text h1 {
+      font-size: 2rem;
+  }
+
+  .hero-text p {
+      font-size: 1.2rem;
+  }
+
+  .knowmore-img {
+      width: 14%;
+  }
+
+  .social-square {
+      width: 40px;
+      height: 40px;
+  }
+  .menu {
+    display: none; /* Oculta el menú por defecto */
+  }
+  .hamburger-menu {
+  display: block; /* Muestra el botón de hamburguesa */
+  width: 60px;
+  height: 60px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/5461/5461272.png'); /* Reemplaza con la URL de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  }
+  .menu-hamburguesa {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px; /* Ajusta según tu diseño */
+    right: 10px; /* Ajusta según tu diseño */
+    width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .menu-hamburguesa.active {
+    display: flex; /* Muestra el menú al activarlo */
+  }
+  
+}
+
+@media screen and (max-width: 640px) {
+  .hero {
+      flex-direction: column;
+      height: auto;
+      width: 90%;
+  }
+
+  .hero-text {
+      padding: 4%;
+      margin: 15px 0;
+  }
+
+  .hero-text h1 {
+      font-size: 1.8rem;
+  }
+
+  .hero-text p {
+      font-size: 1rem;
+  }
+
+  .hero-text a {
+      font-size: 1rem;
+      padding: 6px;
+  }
+
+  .knowmore-img {
+      width: 18%;
+      margin-top: 15px;
+  }
+
+  .social-square {
+      width: 35px;
+      height: 35px;
+  }
+
+  .phone-number,
+  .email-number {
+      font-size: 14px;
+  }
+  .menu {
+    display: none; /* Oculta el menú por defecto */
+  }
+  .hamburger-menu {
+  display: block; /* Muestra el botón de hamburguesa */
+  width: 50px;
+  height: 50px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/5461/5461272.png'); /* Reemplaza con la URL de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 2;
+  }
+  .menu-hamburguesa {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px; /* Ajusta según tu diseño */
+    right: 10px; /* Ajusta según tu diseño */
+    width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .menu-hamburguesa.active {
+    display: flex; /* Muestra el menú al activarlo */
+  }
+  
+}
+
